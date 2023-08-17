@@ -22,7 +22,7 @@ export default function CardActionBar({
   const { user } = useUser();
   const [isDialogOpen, setDialog] = useState(false);
   const navigate = useNavigate();
-   const [isLiked,setLiked] =useState(false);
+   const [isLiked,setLiked] =useState(likes.includes(user.id));
   const handleDeleteCard = () => {
     handleDelete(id);
     setDialog(false);
@@ -62,7 +62,8 @@ export default function CardActionBar({
             <IconButton
               aria-label="Add to favorite" 
               onClick={() => handleLikeClick(id) }          
-              color={isLiked ? "red" : "darkgrey"}
+              color={isLiked ? "error" : ""
+              }
             >
               <FavoriteIcon  />
             </IconButton>
